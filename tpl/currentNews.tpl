@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{news_header}</title>
-
+        <link rel="shortcut icon" href="/images/guitar.ico" type="image/x-icon">
         <!-- Bootstrap -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/mainPage.css" rel="stylesheet">

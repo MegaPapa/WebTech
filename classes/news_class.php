@@ -55,11 +55,11 @@ else
         $tmpDate;
         $result = mysql_query("SELECT newsHead,newsPrehead,newsImg,id,newsText,date FROM news", $this->link);
         while ($row = mysql_fetch_array($result,MYSQL_ASSOC)){
-            $this->newsheader[$i] = $row['newsHead'];
-            $this->prenews[$i] = $row['newsPrehead'];
-            $this->img_array[$i] = $row['newsImg'];
-            $this->newstext[$i] = $row['newsText'];
-            $this->date_array[$i] = $this->mysql_russian_date($row['date']);
+            $this->newsheader[$row['id']] = $row['newsHead'];
+            $this->prenews[$row['id']] = $row['newsPrehead'];
+            $this->img_array[$row['id']] = $row['newsImg'];
+            $this->newstext[$row['id']] = $row['newsText'];
+            $this->date_array[$row['id']] = $this->mysql_russian_date($row['date']);
             $i++;
         }
     }
@@ -92,11 +92,11 @@ else
         $newsCount = mysql_num_rows($result);
         for ($i = ($newsCount); $i >= 1; $i--){
             $tmpNews = $newsTPL;
-            $tmpNews = str_replace($this->replacing_array[0],$this->newsheader[$i],$tmpNews);
-            $tmpNews = str_replace($this->replacing_array[1],$this->prenews[$i],$tmpNews);
-            $tmpNews = str_replace($this->replacing_array[2],$this->img_array[$i],$tmpNews);
+            $tmpNews = str_replace($this->replacing_array[0],$this->newsheader[$this->ids[$i]],$tmpNews);
+            $tmpNews = str_replace($this->replacing_array[1],$this->prenews[$this->ids[$i]],$tmpNews);
+            $tmpNews = str_replace($this->replacing_array[2],$this->img_array[$this->ids[$i]],$tmpNews);
             $tmpNews = str_replace($this->replacing_array[3],$this->ids[$i],$tmpNews);
-            $tmpNews = str_replace($this->replacing_array[5],$this->date_array[$i],$tmpNews);
+            $tmpNews = str_replace($this->replacing_array[5],$this->date_array[$this->ids[$i]],$tmpNews);
             $tmpNews .= '{news}';
             $this->content = str_replace("{news}",$tmpNews,$this->content);
         }

@@ -6,7 +6,7 @@ else
     exit('Scripts not found!');
 
 $page = new video();
-$page->start('./tpl/videocont.tpl');
+$page->start('./tpl/videocont.tpl',"Видеоконтент");
 $page->connect();
 $page->loadIDs('videocont');
 

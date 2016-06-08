@@ -37,7 +37,7 @@ class video extends templater{
         $this->content = str_replace("{source}",$this->sourceLink,$this->content);
         $this->content = str_replace("{lesson_name}",$this->names[$id],$this->content);
         $this->content = str_replace("{lesson_text}",$this->annotation,$this->content);
-        $result = mysql_query("SELECT * FROM tabs", $this->link);
+        $result = mysql_query("SELECT * FROM videocont", $this->link);
         $count = mysql_num_rows($result);
         for ($i = 1; $i <= $count; $i++){
             $tmpVideo = $videoTPL;

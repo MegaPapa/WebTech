@@ -57,9 +57,9 @@ class lesson extends templater{
             $this->content = str_replace("{imgsrc}",$this->images[$i],$this->content);
             $i++;
         }
-        $result = mysql_query("SELECT * FROM tabs", $this->link);
+        $result = mysql_query("SELECT * FROM lessons", $this->link);
         $count = mysql_num_rows($result);
-        for ($i = 1; $i < $count; $i++){
+        for ($i = 1; $i <= $count; $i++){
             $tmpLesson = $lessonTPL;
             $tmpLesson = str_replace("{id}",$this->ids[$i],$tmpLesson);
             $tmpLesson = str_replace("{lesson_name}",$this->names[$i],$tmpLesson);

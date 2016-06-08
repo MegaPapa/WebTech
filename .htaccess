@@ -1,0 +1,19 @@
+AddDefaultCharset utf8
+Options All -Indexes
+RewriteEngine On
+RewriteRule ^index.php$ / [QSA,R]
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+
+<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|tpl)$">
+ Order Allow,Deny
+ Deny from all
+ </FilesMatch>
+ 
+ErrorDocument 500 "500 Internal Server Error"
+ErrorDocument 404 "404 Not Found"
+ErrorDocument 401 "401 Unauthorized "
+ErrorDocument 403 "403 Forbidden"
+ErrorDocument 400 "400 Bad request"

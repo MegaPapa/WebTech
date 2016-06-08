@@ -5,7 +5,7 @@ else
     exit('Scripts not found!');
 
 $page = new tab();
-$page->start('./tpl/tab.tpl');
+$page->start('./tpl/tab.tpl',"Табы");
 $page->connect();
 $page->loadIDs('tabs');
 if ((isset($_GET['id'])) AND (array_search($_GET['id'],$page->ids) != FALSE)){

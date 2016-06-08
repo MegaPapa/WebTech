@@ -3,6 +3,6 @@
 
     include './classes/main.php';
     $page = new mainPage();
-    $page->start('./tpl/main.tpl');
+    $page->start('./tpl/main.tpl',"Orange Guitar");
     echo $page->content;
 ?>
